@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif; /* Added sans-serif as fallback */
     box-sizing: border-box;
 }
 
@@ -55,7 +55,8 @@
     display: flex;
     justify-content: space-evenly;
     background-color: pink;
-    width: 620px;
+    width: 100%; /* Adjusted to full width */
+    max-width: 620px; /* Max width for larger screens */
     height: 40px;
     border-radius: 4px;
 }
@@ -70,7 +71,7 @@
 }
 
 .search-input {
-    width: 500%;
+    width: 100%; /* Changed to 100% for better responsiveness */
     font-size: 1rem;
     border: none;
 }
@@ -256,4 +257,19 @@ ul a {
 
 .copyright {
     padding-top: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .box {
+        width: 48%; /* Adjust box width on smaller screens */
+        margin-bottom: 20px; /* Added spacing */
+    }
+    .nav-search {
+        flex-direction: column; /* Stack elements on smaller screens */
+        width: 90%; /* Width adjustment */
+    }
+    .navbar {
+        flex-direction: column; /* Stack navbar items */
+    }
 }

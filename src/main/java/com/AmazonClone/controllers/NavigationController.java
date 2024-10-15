@@ -20,4 +20,14 @@ public class NavigationController {
 	public String openSignUpPage() {
 	    return "signUp";  // Matches the name of your template
 	}
+	
+	@GetMapping("/openLoginPage")
+	public String openLoginPage() {
+	    return "login";  // Matches the name of your login template (login.html)
+	}
+	
+	@GetMapping("/openResetPassword")
+	public String openResetPassword() {
+	    return "resetpassword";  // Matches the name of your template
+	}
 }

@@ -2,12 +2,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>KodBook</title>
-		<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+		<title>Login</title>
+		<link rel="stylesheet" href="user.css">
 	</head>
 	<body>
-		<h1>KodBook</h1>
-		<h3>#1 Social media app!</h3>
+		<img src="images/amazon_logo.png" alt="Amazon Logo" class="logo"> <!-- Logo Image -->
 		<hr>
 		<form action="/login" method="post">
 			<label>USERNAME : </label>
@@ -21,7 +20,7 @@
 			<input type="submit" value = "LOGIN">
 			<hr>
 			<a href = "/openResetPassword">Forgot password?</a>
-			<a href = "/openSignUp">Create new account</a>
+			<a href = "/openSignUpPage">Create new account</a>
 		</form>
 	</body>
 </html>

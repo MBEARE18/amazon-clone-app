@@ -9,32 +9,39 @@ import com.AmazonClone.repositories.UserRepository;
 @Service
 public class UserServiceImplementation implements UserService {
 
-    @Autowired
-    private UserRepository userRepository; // Injecting the UserRepository
+	@Autowired
+	UserRepository repo;
 
-    @Override
-    public boolean usernameExists(String username) {
-        // Check if a user with the specified username exists in the database
-        return userRepository.findByUsername(username) != null;
-    }
-
-    @Override
-    public void addUser(User user) {
-        // Save the user to the database
-        userRepository.save(user);
-    }
-
-    @Override
-    public boolean validateUser(String username, String password) {
-        // Find the user by username
-        User user = userRepository.findByUsername(username);
-        // Check if the user exists and the password matches
-        return user != null && user.getPassword().equals(password);
-    }
+	public void addUser(User user) {
+		repo.save(user);
+	}
 
 	@Override
 	public boolean userExists(String username, String email) {
-		// TODO Auto-generated method stub
+		User user1 = repo.findByUsername(username);
+		User user2 = repo.findByEmail(email);
+		if(user1 != null || user2 !=null) {
+			return true;
+		}
 		return false;
+	}
+
+	@Override
+	public boolean validateUser(String username, String password) {
+		String dbPass = repo.findByUsername(username).getPassword();
+		if(password.equals(dbPass)) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public User getUser(String username) {
+		return repo.findByUsername(username);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		repo.save(user);
 	}
 }

@@ -7,12 +7,15 @@ import com.AmazonClone.entities.User;
 @Service
 public interface UserService {
 
-	boolean usernameExists(String username);
-
-	void addUser(User user);
+	boolean userExists(String username, String email);
 
 	boolean validateUser(String username, String password);
 
-	boolean userExists(String username, String email);
+	User getUser(String username);
 
+	void updateUser(User user);
+
+	void addUser(User user);
+
+	
 }
